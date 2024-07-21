@@ -1,0 +1,57 @@
+
+import sys
+import random
+import hashlib
+import json
+import datetime
+import uuid
+import socket
+import time
+import os
+import inspect
+from rest_framework.response import Response
+import urllib.request
+from django.db import connection, transaction, connections
+from .queries import *
+# send SMS
+
+
+def replace_null_with_empty_string(dictionary):
+    for i in dictionary:
+        if dictionary[i] == 'NULL' or dictionary[i] == None or dictionary[i] == 'None' or dictionary[i] == 'null':
+            dictionary[i] = ''
+        elif type(dictionary[i]) == int:
+            dictionary[i] = str(dictionary[i])
+    return dictionary
+
+
+def get_page(num1):
+    if type(num1) == str:
+        if num1.isdigit():
+            num = int(num1)
+            if num <= 1:
+                return 0
+            else:
+                return num-1
+        else:
+            return 0
+    elif type(num1) == int:
+        num = int(num1)
+        if num <= 1:
+            return 0
+        else:
+            return num-1
+    else:
+        return 0
+
+
+def sumKeyInDictList(lis, key):
+    """_summary_
+    This Helper Function sums the given list
+    Args:
+        lis (list): list of dictionaries to get values from
+        key (string): the key to calculate sum of
+    Returns:
+        int: sum of the values in given key
+    """
+    return sum(item[key] for item in lis)
