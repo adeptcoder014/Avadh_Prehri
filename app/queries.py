@@ -68,9 +68,15 @@ def insert_subscriber(data):
                 `vibhag`,
                 `nagarKhand`,
                 `baitiMandal`,
-                `POName`
+                `POName`,
+                jila,
+                pincode,
+                referred_person,
+                referred_person_phone,
+                subscription_type
+                
             ) VALUES (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s
             );
         """, data)
         resp = cursor.lastrowid

@@ -29,26 +29,42 @@ def create_subscription(request):
             subscriber_email = serializer.data['subscriber_email']
             subscriber_address = serializer.data['subscriber_address']
             post_office_name = serializer.data['post_office_name']
+            
+            jila = serializer.data['jila']
+            pincode = serializer.data['pincode']
+            referred_person = serializer.data['referred_person']
+            referred_person_phone = serializer.data['referred_person_phone']
+            subscription_type = serializer.data['subscription_type']
       
+
+       
+       
        
 
             data = {
-                'subscriber_name': subscriber_name,  # Assuming container_name is defined elsewhere
-                'subscriber_phone': subscriber_phone,  # Assuming product_category_id is defined elsewhere
-                'subscriber_email': subscriber_email,  # Assuming product_category_name is defined elsewhere
+                'subscriber_name': subscriber_name,  
+                'subscriber_phone': subscriber_phone, 
+                'subscriber_email': subscriber_email,  
                 'subscriptionDate': datetime.datetime.now(),
-                'subscriptionType': 'active',  # Assuming product_category_name is defined elsewhere
-                'subscriptionStatus': 'active',  # Assuming product_category_name is defined elsewhere
-                'subscriberAddress': subscriber_address,  # Assuming product_category_name is defined elsewhere
+                'subscriptionType': 'active',  
+                'subscriptionStatus': 'active',  
+                'subscriberAddress': subscriber_address, 
                 'amount': amount,
                 'vibhag': vibhag,
+                
+                
                 'nagar_khand': nagar_khand,
                 'baiti_mandal': baiti_mandal,
-                'post_office_name': post_office_name,  # Assuming product_id is defined elsewhere
+                'post_office_name': post_office_name,  
                 # 'UpdatedAt': datetime.datetime.now(),
+                
+                'jila': jila,
+                'pincode': pincode,
+                'referred_person': referred_person,
+                'referred_person_phone': referred_person_phone,
+                'subscription_type': subscription_type,
             }
 
-            # Update your insert_product function to handle these data types
             insert_product =insert_subscriber(list(data.values()))
 
             if insert_product:

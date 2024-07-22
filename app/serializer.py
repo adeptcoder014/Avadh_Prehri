@@ -32,6 +32,13 @@ class SubscriptionSerializer(serializers.Serializer):
     amount = serializers.CharField(required=True)
     vibhag = serializers.CharField(required=True)
     nagar_khand = serializers.CharField(required=True)
+    
+    jila = serializers.CharField(required=True)
+    pincode = serializers.CharField(required=True)
+    referred_person = serializers.CharField(required=True)
+    referred_person_phone = serializers.CharField(required=True)
+    subscription_type = serializers.CharField(required=True)
+    
     baiti_mandal = serializers.CharField(required=True)
     subscriber_name = serializers.CharField(required=True)
     subscriber_phone = serializers.CharField(required=True)
