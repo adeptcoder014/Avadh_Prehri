@@ -88,7 +88,7 @@ def get_subscriber():
         resp = cursor.execute(
             """SELECT * FROM AvadhPrehriSubscribers""")
         if resp and cursor.rowcount:
-            resp = dictfetchone(cursor)
+            resp = dictfetchall(cursor)
         else:
             resp = None
     return resp
